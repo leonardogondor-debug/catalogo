@@ -1,0 +1,188 @@
+ http://localhost:5173/
+
+ Objetivo
+Desenvolver uma aplicação front-end utilizando React para exibir um catálogo de produtos. O objetivo é aplicar os conceitos aprendidos no módulo, como criação de componentes reutilizáveis, uso de JSX, props, state, controle de formulários e ciclo de vida com o hook useEffect.
+
+Requisitos
+1. Estrutura do Projeto
+Criar a aplicação utilizando Vite.
+
+Organizar os arquivos em pastas separadas: components, pages, assets (se necessário) e App.jsx.
+
+2. Componentes Reutilizáveis
+Criar um componente ProdutoCard para exibir as informações de um produto.
+
+O componente deve receber as informações do produto via props (nome, preço, imagem e descrição).
+
+3. Listagem Dinâmica
+Utilizar o state para armazenar a lista de produtos.
+
+Renderizar dinamicamente os produtos na tela através de .map().
+
+4. Formulário de Cadastro de Produto
+Criar um formulário controlado com React para adicionar novos produtos ao catálogo.
+
+Os dados do formulário devem ser armazenados no state e exibidos na tela após o envio.
+
+Campos obrigatórios: nome do produto, preço e descrição.
+
+5. Simulação de API com useEffect
+Simular o carregamento inicial dos produtos usando o hook useEffect, com uma lista fictícia ou dados mockados.
+
+Exibir uma mensagem de "carregando..." enquanto os dados são simuladamente buscados.
+
+Entrega
+Subir o projeto completo no GitHub (repositório público).
+
+Compartilhar o link do repositório conforme as instruções.
+
+Dicas
+Utilize o useState para gerenciar os produtos e os campos do formulário.
+
+Mantenha o código organizado, separando os componentes por função.
+
+Utilize props corretamente para tornar os componentes reutilizáveis.
+
+Use useEffect com um setTimeout para simular o carregamento da lista de produtos.
+
+Capriche no visual utilizando CSS (ou bibliotecas visuais se preferir). PODE ME AJUDAR A CRIAR ISTO NAO CRIE O CODIGO VA ME ORIENTANDO
+
+🧭 Roteiro Geral do Projeto
+A ideia é você construir o catálogo seguindo uma sequência lógica:
+
+Criar o projeto com Vite
+
+Organizar a estrutura de pastas
+
+Criar o componente reutilizável ProdutoCard
+
+Criar a página principal com a lista de produtos
+
+Criar o formulário controlado
+
+Simular carregamento com useEffect
+
+Finalizar visual e publicar no GitHub
+
+Vou te guiar por cada etapa.
+
+🔧 1. Criar o projeto com Vite
+Você vai abrir o terminal e rodar:
+
+npm create vite@latest nome-do-projeto
+
+Escolher React e JavaScript
+
+Entrar na pasta e rodar npm install
+
+Depois npm run dev para ver o projeto rodando
+
+👉 Confirme quando essa parte estiver feita para seguirmos.
+
+📁 2. Estrutura de pastas
+Dentro da pasta src, você vai criar:
+
+components/ → onde ficará o ProdutoCard
+
+pages/ → onde ficará a página Home
+
+assets/ → imagens (se quiser)
+
+App.jsx → ponto central da aplicação
+
+A estrutura final deve ficar assim:
+
+Código
+src/
+ ├── components/
+ │     └── ProdutoCard.jsx
+ ├── pages/
+ │     └── Home.jsx
+ ├── assets/
+ ├── App.jsx
+ └── main.jsx
+🧱 3. Criar o componente ProdutoCard
+Esse componente deve receber via props:
+
+nome
+
+preço
+
+imagem
+
+descrição
+
+Ele será responsável por exibir um produto.
+
+👉 Pense nele como um “cartão” visual.
+
+📦 4. Listagem dinâmica com state
+Na página Home:
+
+Criar um state produtos
+
+Renderizar os produtos usando .map()
+
+Cada item do map deve gerar um <ProdutoCard />
+
+📝 5. Criar o formulário controlado
+Ainda na Home:
+
+Criar states para cada campo do formulário
+
+Atualizar os states com onChange
+
+No onSubmit, adicionar o novo produto ao array de produtos
+
+Limpar o formulário após o envio
+
+Campos obrigatórios:
+
+nome
+
+preço
+
+descrição
+
+⏳ 6. Simular API com useEffect
+Na Home:
+
+Criar um state carregando
+
+No useEffect, usar setTimeout (ex: 2 segundos)
+
+Após o tempo, preencher o state produtos com dados mockados
+
+Enquanto carregando === true, exibir “Carregando...”
+
+🎨 7. Visual
+Você pode usar:
+
+CSS puro
+
+CSS modules
+
+Tailwind
+
+Bootstrap
+
+O importante é deixar organizado e bonito.
+
+🚀 8. Publicar no GitHub
+Passos:
+
+Criar repositório no GitHub
+
+No terminal do projeto:
+
+git init
+
+git add .
+
+git commit -m "Projeto catálogo React"
+
+git branch -M main
+
+git remote add origin URL_DO_REPO
+
+git push -u origin main

@@ -1,0 +1,50 @@
+Objetivo
+Refatorar os estilos de um componente React utilizando abordagens de CSS-in-JS com Styled Components ou Emotion, aplicando os conceitos aprendidos nas três aulas do módulo: CSS-in-JS, Styled Components e Emotion.
+
+Requisitos
+1. Estrutura Inicial
+
+Crie uma aplicação React (utilize Vite, Create React App ou repositório já existente).
+
+Estruture um componente de interface chamado CardProduto com as seguintes informações: 
+
+Nome do produto
+
+Preço
+
+Botão "Adicionar ao carrinho"
+
+Você pode usar dados estáticos para preenchimento.
+
+2. Refatoração com CSS-in-JS
+
+Utilize Styled Components ou Emotion (escolha uma das duas bibliotecas).
+
+Transforme os estilos do componente CardProduto para que sejam definidos diretamente dentro do JavaScript utilizando template literals (styled-components ou @emotion/styled).
+
+3. Estilização Dinâmica
+
+Faça com que o botão mude de cor com base em uma prop chamada adicionado: 
+
+true: cor verde (#198754)
+
+false: cor cinza (#6c757d)
+
+
+4. Componentização e Organização
+
+Mantenha os estilos organizados e separados por componente, mesmo que estejam no mesmo arquivo.
+
+Use boas práticas de nomeação.
+
+Entrega
+Suba o projeto finalizado em um repositório público no GitHub.
+
+Compartilhe o link conforme as instruções fornecidas em sala ou plataforma.
+
+Dicas
+Use os exemplos das aulas como base para criação dos estilos.
+
+Comente o código para facilitar a compreensão de decisões estilísticas.
+
+Utilize ferramentas como o React Developer Tools para inspecionar os componentes e verificar o estado de props.

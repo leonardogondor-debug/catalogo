@@ -1,10 +1,31 @@
 import styled from "styled-components";
 
+export const GridConteiner = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 1024px) {
+  grid-template-columns: repeat(4, 1fr);
+  }
+`;
+
 export const Card = styled.div`
-  border: 10px solid;
-  border-radius: 2rem;
+  border: 6px solid;
+  border-radius: 1rem;
   margin: 0.5rem; 
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+export const Imagem = styled.img`
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   border-radius: 1rem;
+   display: block;
+   text-align: center;
 `;
 
 export const NomeProduto = styled.h2`
@@ -27,15 +48,17 @@ export const Botao = styled.button`
   border-radius: 20px;
   font-family: sans-serif;
   font-size: 1rem;
-  width: 50%;
+  width: 100%;
   height: 3rem;
+  align-self: center;
+  
 
   &:hover {
   opacity: 0.8;
   }
 
   /* para tela celular tablet */
-  @media (max-width: 768px;) {
-     width: 100%;
+  @media (min-width: 1024px) {
+     width: 70%;
   }
 `; 

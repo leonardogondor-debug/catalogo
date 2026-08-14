@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import ProdutoCard from "../components/ProdutoCard";
-
+import { GridConteiner } from "../components/CardProduto.styled";
+import { FormContainer, Input, InputImg, TextArea, SubmitButton, AlertCarregando } from "../components/Form.styled";
+import notebookImg from "../assets/notebook.webp";
+import celularImg from "../assets/celular.webp";
+import tabletImg from "../assets/tablet.webp";
 
 function Home() {
     const [imagem, setImagem] = useState("");
@@ -16,9 +20,9 @@ function Home() {
     useEffect(() => {
         setTimeout(() => {
             const dadosMockados = [
-                { imagem: "src/assets/notebook.webp", nome: "Notebook", preco: 3500, descricao: "Notebook gamer RTX" },
-                { imagem: "src/assets/celular.webp", nome: "Celular", preco: 2000, descricao: "Smartphone Android" },
-                { imagem: "src/assets/tablet.webp", nome: "Tablet", preco: 1500, descricao: "Tablet 10 polegadas" },
+                { imagem: notebookImg, nome: "Notebook", preco: 3500, descricao: "Notebook gamer RTX" },
+                { imagem: celularImg, nome: "Celular", preco: 2000, descricao: "Smartphone Android" },
+                { imagem: tabletImg, nome: "Tablet", preco: 1500, descricao: "Tablet 10 polegadas" },
             ];
             setProdutos(dadosMockados);
             setCarregando(false);
@@ -27,6 +31,23 @@ function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const nomeTrim = nome.trim();
+
+        if (!nomeTrim) {
+            alert("O nome não pode ser vazio ou só espaço!")
+            return;
+        }
+
+        if (preco < 0) {
+            alert("O preço não pode ser negativo!");
+            return;
+        }
+
+        if (produtos.some(p => p.nome.toLowerCase() === nomeTrim.toLowerCase())) {
+            alert("Já existe um produto com esse nome!");
+            return;
+        }
 
         /*cria produto*/
         const novoProduto = {
@@ -53,10 +74,10 @@ function Home() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <FormContainer onSubmit={handleSubmit}>
+                
                     {/*campo iamgem*/}
-                    <input ref={filesInputRef} type="file" accept="image/*" onChange={(e) => {
+                    <InputImg ref={filesInputRef} type="file" accept="image/*" onChange={(e) => {
                         const file = e.target.files[0];
                         if (file) {
                             setImagem(URL.createObjectURL(file));
@@ -65,25 +86,26 @@ function Home() {
                     />
 
                     {/*campo nome */}
-                    <input
+                    <Input
                         type="text"
-                        placeholder="Digite seu nome"
+                        placeholder="Digite o nome"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
                         required
                     />
 
                     {/*campo preco*/}
-                    <input
+                    <Input
                         type="number"
                         placeholder="Digite o preço"
                         value={preco}
                         onChange={(e) => setPreco(Number(e.target.value))}
+                        min="0"
                         required
                     />
 
                     {/*campo descricao*/}
-                    <textarea
+                    <TextArea
                         placeholder="Digite a descrição do produto"
                         maxLength={35}
                         value={descricao}
@@ -92,17 +114,17 @@ function Home() {
                     />
 
                     {/*botao de envio*/}
-                    <button type="submit">Cadastrar</button>
-                </div>
-            </form >
+                    <SubmitButton type="submit">Cadastrar</SubmitButton>
+                
+            </FormContainer >
 
             {/*lista de produtos */}
 
             {
                 carregando ? (
-                    <p>Carregando...</p>
+                    <AlertCarregando>Carregando...</AlertCarregando>
                 ) : (
-                    <div>
+                    <GridConteiner>
                         {produtos.map((produto, index) => (
                             <ProdutoCard
                                 key={index}
@@ -112,11 +134,11 @@ function Home() {
                                 descricao={produto.descricao}
                             />
                         ))}
-                    </div>
+                    </GridConteiner>
                 )
             }
         </>
     );
 }
 
-export default Home;
+export default Home; 
